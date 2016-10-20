@@ -53,3 +53,4 @@ tweepy==3.5.0
 Unidecode==0.4.19
 wcwidth==0.1.7
 whichcraft==0.4.0
+nltk==3.2.1
