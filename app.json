@@ -28,6 +28,5 @@
       }
     },
     "heroku-redis:hobby-dev",
-    "mailgun"
   ]
 }
