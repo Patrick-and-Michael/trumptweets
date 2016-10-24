@@ -18,6 +18,7 @@ trump = api.get_user("realDonaldTrump")
 
 recent_tweets = tweepy.Cursor(api.user_timeline, id=trump.id).items(20)
 
+# list of tweepy.models.Status objects
 tweet_list = [x for x in recent_tweets]
 
 tweet_texts = [x.text for x in tweet_list]
