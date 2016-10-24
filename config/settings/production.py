@@ -94,8 +94,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # See:
 # https://docs.djangoproject.com/en/dev/ref/templates/api/#django.template.loaders.cached.Loader
 TEMPLATES[0]['OPTIONS']['loaders'] = [
-    ('django.template.loaders.cached.Loader', [
-        'django.template.loaders.filesystem.Loader', 'django.template.loaders.app_directories.Loader', ]),
+    ('django.template.loaders.cached.Loader',
+     ['django.template.loaders.filesystem.Loader',
+      'django.template.loaders.app_directories.Loader', ]),
 ]
 
 # DATABASE CONFIGURATION
@@ -127,3 +128,8 @@ ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+# EMAIL
+# ------------------------------------------------------------------------------
+# for now, send emails to console, even in production
+EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
