@@ -85,7 +85,7 @@ StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
-MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
+#MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 
 # Static Assets
 # ------------------------
