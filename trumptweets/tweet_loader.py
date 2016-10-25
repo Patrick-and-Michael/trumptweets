@@ -1,6 +1,4 @@
-import math
 import os
-import random
 import tweepy
 
 from nltk import TweetTokenizer
