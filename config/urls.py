@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'^api/tweetLoader$', views.tweet_loader, name='tweet_loader'),
+    url(r'^api/tweetloader$', views.tweet_loader, name='tweet_loader'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

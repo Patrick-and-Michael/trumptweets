@@ -22,8 +22,12 @@ class JSONResponse(HttpResponse):
 def tweet_loader(request):
     """Get first and last tweet id from database, or add tweets."""
     if request.method == 'GET':
-        tweets = Tweet.objects.all().order_by('tweet_id')
-        data = {'first': tweets.first().tweet_id, 'last': tweets.last().tweet_id}
+        try:
+            tweets = Tweet.objects.all().order_by('tweet_id')
+            data = {'oldest': tweets.first().tweet_id, 'newest': tweets.last().tweet_id}
+        except AttributeError:
+            data = {'oldest': 0, 'newest': 0}
+
         # json = JSONRenderer.render(data)
         return JSONResponse(data)
 
