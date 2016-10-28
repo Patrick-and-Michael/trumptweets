@@ -38,5 +38,5 @@ def tweet_loader(request):
         for tweet in new_tweet_list:
             new_tweet = TweetSerializer(data=tweet)
             if new_tweet.is_valid():
-                new_tweet.create()
+                new_tweet.create(new_tweet.validated_data)
         return HttpResponse("200 OK")
