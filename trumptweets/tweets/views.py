@@ -40,3 +40,4 @@ def tweet_loader(request):
             new_tweet.is_valid()
             if new_tweet.is_valid():
                 new_tweet.create()
+        return HttpResponse("200 OK")
