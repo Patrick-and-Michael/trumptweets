@@ -1,7 +1,10 @@
 """Use twitter API to get Donald's tweets."""
+from __future__ import absolute_import
 from itertools import chain
 from nltk import TweetTokenizer
 import math, os, random, tweepy
+from models import Tweet
+from serializers import TweetSerializer
 
 consumer_key = os.environ.get("CONSUMER_KEY")
 consumer_secret = os.environ.get("CONSUMER_SECRET")
@@ -20,6 +23,9 @@ recent_tweets = tweepy.Cursor(api.user_timeline, id=trump.id).items(20)
 
 # list of tweepy.models.Status objects
 tweet_list = [x for x in recent_tweets]
+
+for tweet in tweet_list:
+    TweetSerializer(tweet).create()
 
 tweet_texts = [x.text for x in tweet_list]
 
