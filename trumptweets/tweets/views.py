@@ -34,10 +34,9 @@ def tweet_loader(request):
         return JSONResponse(data)
 
     if request.method == 'POST':
-        new_tweet_list = request.data
+        new_tweet_list = request.data['statuses']
         for tweet in new_tweet_list:
             new_tweet = TweetSerializer(data=tweet)
-            new_tweet.is_valid()
             if new_tweet.is_valid():
                 new_tweet.create()
         return HttpResponse("200 OK")
