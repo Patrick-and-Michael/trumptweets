@@ -36,7 +36,7 @@ def tweet_loader(request):
     if request.method == 'POST':
         new_tweet_list = request.data
         for tweet in new_tweet_list:
-            new_tweet = TweetSerializer(tweet)
+            new_tweet = TweetSerializer(data=tweet)
             new_tweet.is_valid()
             if new_tweet.is_valid():
                 new_tweet.create()
